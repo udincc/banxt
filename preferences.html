@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/tempLogo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./public/banXT.png" type="image/x-icon">
+    <link rel="stylesheet" href="./public/banXT.css">
+    <script src="./public/bananocoin-bananojs.js"></script>
+    <title>banano Xpense Tracker</title>
+</head>
+<body>
+    <div id="splitBox" class="split">
+      <div class="sidebar">
+        <div class="sidebarheader">
+          <img src="./public/banXT.png" alt="" class="sidebarheaderlogo">
+          <span class="sidebarheadertitle">banXT</span>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./" class="sidebarbutton">
+            <i>≣</i>
+            <span>Dashboard</span>
+          </a>
+          <a href="./newtx" class="sidebarbutton">
+            <i>+</i>
+            <span>New Transaction</span>
+          </a>
+          <a href="./history" class="sidebarbutton">
+            <i>⊶</i>
+            <span>History</span>
+          </a>
+          <a href="./accounts" class="sidebarbutton">
+            <i>≛</i>
+            <span>Accounts</span>
+          </a>
+          <a href="./budgets" class="sidebarbutton">
+            <i>◕</i>
+            <span>Budgets</span>
+          </a>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./preferences" class="sidebarbutton sidebarbuttonactive">
+            <i>⚙</i>
+            <span>Preferences</span>
+          </a>
+        </div>
+        <div class="sidebarfooter">
+          <a href="./about" class="sidebarbutton">
+            <i>◉</i>
+            <span>About</span>
+          </a>
+        </div>
+      </div>
+      <div class="mainbar">
+        <div class="mainbarheader">
+          <i id="mobilemenu" onclick="mobileMenu()">≡</i> 
+          <span onclick="goUp()">Preferences</span>
+          <i onclick="goDark()">◐</i>          
+        </div>
+        <div class="mainbarmain">
+          <div class="cont" id="inputContainer">
+            <div id="yeSeed"  class="inputbox" >
+              <br>
+              <div class="tac">
+                Warning!
+                <br>
+                You already have seed saved on your browser.
+              </div>
+              <br>
+            </div>
+            <div id="noSeed"  class="inputbox" >
+              <br>
+              <div class="tac">
+                We cant find seed saved on your browser, please Generate New Seed
+              </div>
+              <br>
+            </div>
+              <div class="inputbox">
+                <button onclick="getNewSeed()">Generate New Seed</button>
+              </div>
+              <div class="inputbox">
+                <label for="newSeed">Your New Seed</label>
+                <textarea name="newSeed" id="newSeed" disabled></textarea>
+              </div>
+              <div class="inputbox">
+                <label for="newRoot">Your banXT Utility Account</label>
+                <textarea name="newRoot" id="newRoot" disabled></textarea>
+              </div>
+              <div class="inputbox">
+                <label for="rootBalance">Balance</label>
+                <input type="text" id="rootBalance" disabled>
+              </div>
+              <div id="useSeed"  class="inputbox" >
+                <br>
+                <div class="tac">Make sure to save your seed!</div>
+                <div class="tac">Send at least 5 BAN to your "Utility" Account to start using this!</div>
+                <br>
+                <br>
+                <button onclick="useThisSeed()">Use This Seed</button>
+              </div>
+            </div>
+        </div>
+
+        <div class="mainbarfooter">
+          <span>
+            This website is a proof of concept. Use with caution. Breaking changes may occur. <br>
+            Powered by:
+            <a href="https://github.com/BananoCoin/bananojs" target="_blank" rel="noopener noreferrer">bananojs ↗</a> | by: 
+          <a href="https://twitter.com/udinccc" target="_blank" rel="noopener noreferrer">@udinccc ↗</a>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="mobileMenuBox" class="mobilemenubox">
+      <div class="mobilemenuheader">
+        <span>banano Xpense Tracker</span>
+        <i onclick="mobileMenu()">X</i>
+      </div>
+      <div class="mobilemenumain">
+        <a href="./" class="mobilebutton">
+          <i>≣</i>
+          <span>Dashboard</span>
+        </a>
+        <a href="./newtx" class="mobilebutton mobilebuttonactive">
+          <i>+</i>
+          <span>New Transaction</span>
+        </a>
+        <a href="./history" class="mobilebutton">
+          <i>⊶</i>
+          <span>History</span>
+        </a>
+        <a href="./accounts" class="mobilebutton">
+          <i>≛</i>
+          <span>Accounts</span>
+        </a>
+        <a href="./budgets" class="mobilebutton">
+          <i>◕</i>
+          <span>Budgets</span>
+        </a>
+        <a href="./preferences" class="mobilebutton">
+          <i>⚙</i>
+          <span>Preferences</span>
+        </a>
+      </div>
+      <div class="mobilemenufooter">
+        <a href="./about" class="mobilebutton">
+          <i>◉</i>
+          <span>About</span>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="./public/defAcc.js"></script>
+    <script src="./public/banXT.js"></script>
+    <script src="./public/banXTdom.js"></script>
+    <style>
+      #yeSeed, #noSeed {
+        color: var(--rd);
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      #yeSeed, #noSeed, #useSeed {
+        display: none;
+      }
+    </style>
+    <script>
+      async function showSeed(seed){
+        let uacc = await getAcc(seed,1);
+        let rbal = await getBal(uacc)
+        eID('newSeed').value = seed;
+        eID('newRoot').value = uacc;
+        eID('rootBalance').value = rbal.balance_decimal+' BAN';
+      }
+      const seed = localStorage.getItem('banXTSeed');
+      if(seed == undefined){
+          console.log('nooooo seed');
+          sBK('noSeed')
+        } else {
+          console.log('yeeeee seed');
+          sBK('yeSeed');
+          showSeed(seed);
+        }      
+    </script>
+</body>
+</html>

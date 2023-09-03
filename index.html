@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/tempLogo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./public/banXT.png" type="image/x-icon">
+    <link rel="stylesheet" href="./public/banXT.css">
+    <script src="./public/bananocoin-bananojs.js"></script>
+    <title>banano Xpense Tracker</title>
+</head>
+<body>
+    <div id="splitBox" class="split">
+      <div class="sidebar">
+        <div class="sidebarheader">
+          <img src="./public/banXT.png" alt="" class="sidebarheaderlogo">
+          <span class="sidebarheadertitle">banXT</span>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./" class="sidebarbutton sidebarbuttonactive">
+            <i>≣</i>
+            <span>Dashboard</span>
+          </a>
+          <a href="./newtx" class="sidebarbutton">
+            <i>+</i>
+            <span>New Transaction</span>
+          </a>
+          <a href="./history" class="sidebarbutton">
+            <i>⊶</i>
+            <span>History</span>
+          </a>
+          <a href="./accounts" class="sidebarbutton">
+            <i>≛</i>
+            <span>Accounts</span>
+          </a>
+          <a href="./budgets" class="sidebarbutton">
+            <i>◕</i>
+            <span>Budgets</span>
+          </a>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./preferences" class="sidebarbutton">
+            <i>⚙</i>
+            <span>Preferences</span>
+          </a>
+        </div>
+        <div class="sidebarfooter">
+          <a href="./about" class="sidebarbutton">
+            <i>◉</i>
+            <span>About</span>
+          </a>
+        </div>
+      </div>
+      <div class="mainbar">
+        <div class="mainbarheader">
+          <i id="mobilemenu" onclick="mobileMenu()">≣</i> 
+          <span onclick="goUp()">Dashboard</span>
+          <i onclick="goDark()">◐</i>          
+        </div>
+        <div class="mainbarmain">
+
+          <div class="overviewbox">
+            <div class="ovbalance">
+              <span>Total Balance</span>
+              <h1 id="tBalance">0</h1>
+            </div>
+            <div class="ovflowbox">
+              <div class="ovflow">
+                <span>Income</span>
+                <span id="tInflow">0</span>
+              </div>
+              <div class="ovflow">
+                <span>Expense</span>
+                <span id="tOutflow">0</span>
+              </div>
+              <hr>
+              <div class="ovflow">
+                <span>Net Cash Flow</span>
+                <span id="tNetflow">0</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="budgetbox">
+              <h1>Budget</h1>
+              <span>-under development-</span>
+          </div>
+
+          <div class="historybox" id="historyBox">
+            <h1>Transactions</h1>
+            <span id="noHistory">0</span>
+          </div>
+          
+        </div>
+
+        <div class="mainbarfooter">
+          <span>
+            This website is a proof of concept. Use with caution. Breaking changes may occur. <br>
+            Powered by:
+            <a href="https://github.com/BananoCoin/bananojs" target="_blank" rel="noopener noreferrer">bananojs ↗</a> | by: 
+          <a href="https://twitter.com/udinccc" target="_blank" rel="noopener noreferrer">@udinccc ↗</a>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="mobileMenuBox" class="mobilemenubox">
+      <div class="mobilemenuheader">
+        <span>banano Xpense Tracker</span>
+        <i onclick="mobileMenu()">X</i>
+      </div>
+      <div class="mobilemenumain">
+        <a href="./" class="mobilebutton mobilebuttonactive">
+          <i>≣</i>
+          <span>Dashboard</span>
+        </a>
+        <a href="./newtx" class="mobilebutton">
+          <i>+</i>
+          <span>New Transaction</span>
+        </a>
+        <a href="./history" class="mobilebutton">
+          <i>⊶</i>
+          <span>History</span>
+        </a>
+        <a href="./accounts" class="mobilebutton">
+          <i>≛</i>
+          <span>Accounts</span>
+        </a>
+        <a href="./budgets" class="mobilebutton">
+          <i>◕</i>
+          <span>Budgets</span>
+        </a>
+        <a href="./preferences" class="mobilebutton">
+          <i>⚙</i>
+          <span>Preferences</span>
+        </a>
+      </div>
+      <div class="mobilemenufooter">
+        <a href="./about" class="mobilebutton">
+          <i>◉</i>
+          <span>About</span>
+        </a>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="./public/banXTdom.js"></script>
+    <script src="./public/defAcc.js"></script>
+    <script src="./public/banXT.js"></script>
+    <script>
+      async function getOverview(){
+        await postPen(seed, 1);
+        await getWalletInfo(walAcc, incAcc, expAcc);
+      }
+      const seed = localStorage.getItem('banXTSeed');
+      if(seed == undefined){
+          console.log('nooooo seed');
+          window.location.replace("./preferences");
+        } else {
+          console.log('yeeeee seed');
+          getOverview(); 
+        }
+
+    </script>
+
+</body>
+</html>

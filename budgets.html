@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./public/tempLogo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./public/banXT.png" type="image/x-icon">
+    <link rel="stylesheet" href="./public/banXT.css">
+    <title>banano Xpense Tracker</title>
+</head>
+<body>
+    <div id="splitBox" class="split">
+      <div class="sidebar">
+        <div class="sidebarheader">
+          <img src="./public/banXT.png" alt="" class="sidebarheaderlogo">
+          <span class="sidebarheadertitle">banXT</span>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./" class="sidebarbutton">
+            <i>≣</i>
+            <span>Dashboard</span>
+          </a>
+          <a href="./newtx" class="sidebarbutton">
+            <i>+</i>
+            <span>New Transaction</span>
+          </a>
+          <a href="./history" class="sidebarbutton">
+            <i>⊶</i>
+            <span>History</span>
+          </a>
+          <a href="./accounts" class="sidebarbutton">
+            <i>≛</i>
+            <span>Accounts</span>
+          </a>
+          <a href="./budgets" class="sidebarbutton sidebarbuttonactive">
+            <i>◕</i>
+            <span>Budgets</span>
+          </a>
+        </div>
+        <hr>
+        <div class="sidebarmain">
+          <a href="./preferences" class="sidebarbutton">
+            <i>⚙</i>
+            <span>Preferences</span>
+          </a>
+        </div>
+        <div class="sidebarfooter">
+          <a href="./about" class="sidebarbutton">
+            <i>◉</i>
+            <span>About</span>
+          </a>
+        </div>
+      </div>
+      <div class="mainbar">
+        <div class="mainbarheader">
+          <i id="mobilemenu" onclick="mobileMenu()">≣</i> 
+          <span onclick="goUp()">Budgets</span>
+          <i onclick="goDark()">◐</i>          
+        </div>
+        <div class="mainbarmain">
+          <img src="https://udin.cc/pmj-bite.gif" alt="" width="100%">
+          <div class="tac">move along, nothing to see here, yet.</div>
+        </div>
+
+        <div class="mainbarfooter">
+          <a href="https://twitter.com/udinccc" target="_blank" rel="noopener noreferrer">by: @udinccc ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="mobileMenuBox" class="mobilemenubox">
+      <div class="mobilemenuheader">
+        <span>banXT</span>
+        <i onclick="mobileMenu()">X</i>
+      </div>
+      <div class="mobilemenumain">
+        <a href="./" class="mobilebutton">
+          <i>≣</i>
+          <span>Dashboard</span>
+        </a>
+        <a href="./newtx" class="mobilebutton">
+          <i>+</i>
+          <span>New Transaction</span>
+        </a>
+        <a href="./history" class="mobilebutton">
+          <i>⊶</i>
+          <span>History</span>
+        </a>
+        <a href="./accounts" class="mobilebutton">
+          <i>≛</i>
+          <span>Accounts</span>
+        </a>
+        <a href="./budgets" class="mobilebutton mobilebuttonactive">
+          <i>◕</i>
+          <span>Budgets</span>
+        </a>
+        <a href="./preferences" class="mobilebutton">
+          <i>⚙</i>
+          <span>Preferences</span>
+        </a>
+      </div>
+      <div class="mobilemenufooter">
+        <a href="./about" class="mobilebutton">
+          <i>◉</i>
+          <span>About</span>
+        </a>
+      </div>
+    </div>
+    <script src="./public/banXTdom.js"></script>
+</body>
+</html>
