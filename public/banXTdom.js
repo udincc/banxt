@@ -94,10 +94,12 @@ async function postIncome(){
   let nAm = iAm.padStart(29,'0');
   let aAm = '0.'+nAm;
 
-  await newTxn(seed,1,aFr,aAm)
+  await newTxn(seed,1,aFr,aAm);
+  sBK('resIncome');
   await postPen(seed,iFr);
   await newTxn(seed,iFr,aTo,aAm);
-  await postPen(seed,iTo)
+  await postPen(seed,iTo);
+  eID('resIncome').value = 'saved...'
 };
 async function postExpense(){
   let iFr = eID('txFromAccount').value;
@@ -112,9 +114,11 @@ async function postExpense(){
   let aAm = '0.'+nAm;
 
   await newTxn(seed,iFr,aTo,aAm);
+  sBK('resExpense');
   await postPen(seed,iFr);
-  await newTxn(seed,iTo,0,aAm);
-  await postPen(seed,iTo);
+  await newTxn(seed,iTo,1,aAm);
+  await postPen(seed,1);
+  eID('resExpense').value = 'saved...'
 };
 async function postTransfer(){
   let iFr = eID('transferFrom').value;
@@ -129,5 +133,7 @@ async function postTransfer(){
   let aAm = '0.'+nAm;
 
   await newTxn(seed,iFr,aTo,aAm);
+  sBK('resTransfer');
   await postPen(seed,iTo);
+  eID('resTransfer').value = 'saved...'
 };
