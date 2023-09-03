@@ -87,6 +87,7 @@
               </div>
               <div class="inputbox">
                 <button onclick="postIncome()">Save</button>
+                <input id="resIncome" type="text" placeholder="saving...">
               </div>
             </div>
   
@@ -101,6 +102,7 @@
               </div>
               <div class="inputbox">
                 <button onclick="postExpense()">Save</button>
+                <input id="resExpense" type="text" placeholder="saving...">
               </div>
             </div>
 
@@ -115,6 +117,7 @@
               </div>
               <div class="inputbox">
                 <button onclick="postTransfer()">Save</button>
+                <input id="resTransfer" type="text" placeholder="saving...">
               </div>
             </div>
           </div>
@@ -184,6 +187,11 @@
     <script src="./public/defAcc.js"></script>
     <script src="./public/banXT.js"></script>
     <script src="./public/banXTdom.js"></script>
+    <style>
+      #resIncome, #resExpense, #resTransfer {
+        display: none;
+      }
+    </style>
     <script>
       const seed = localStorage.getItem('banXTSeed');
       if(seed == undefined){
