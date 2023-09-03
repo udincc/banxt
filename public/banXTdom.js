@@ -72,7 +72,7 @@ function prepareTxForm(){
 async function selAccBal(id){
   /*
   let ix = eID(id).value;
-  let ac = await getAcc(seed, ix);
+  let ac = await getAcc(seed, seed, ix);
   let cb = await getBal(seed, ac);
   let nb = cb.balance;
   let cc = eID('ix'+ix).innerHTML;
@@ -84,27 +84,27 @@ async function selAccBal(id){
 
 async function postIncome(){
   let iFr = eID('txIncomeSrc').value;
-  let aFr = await getAcc(iFr);
+  let aFr = await getAcc(seed, iFr);
   console.log(iFr, aFr)
   let iTo = eID('txToAccount').value;
-  let aTo = await getAcc(iTo);
+  let aTo = await getAcc(seed, iTo);
   console.log(iTo,aTo)
   let iAm = (eID('txAmount').value).toString();
   console.log(iAm)
   let nAm = iAm.padStart(29,'0');
   let aAm = '0.'+nAm;
 
-  await newTxn(seed,'1',aFr,aAm)
+  await newTxn(seed,1,aFr,aAm)
   await postPen(seed,iFr);
   await newTxn(seed,iFr,aTo,aAm);
   await postPen(seed,iTo)
 };
 async function postExpense(){
   let iFr = eID('txFromAccount').value;
-  let aFr = await getAcc(iFr);
+  let aFr = await getAcc(seed, iFr);
   console.log(iFr, aFr)
   let iTo = eID('txExpenseCat').value;
-  let aTo = await getAcc(iTo);
+  let aTo = await getAcc(seed, iTo);
   console.log(iTo,aTo)
   let iAm = (eID('txAmount').value).toString();
   console.log(iAm)
@@ -118,10 +118,10 @@ async function postExpense(){
 };
 async function postTransfer(){
   let iFr = eID('transferFrom').value;
-  let aFr = await getAcc(iFr);
+  let aFr = await getAcc(seed, iFr);
   console.log(iFr,aFr)
   let iTo = eID('transferTo').value;
-  let aTo = await getAcc(iTo);
+  let aTo = await getAcc(seed, iTo);
   console.log(iTo,aTo)
   let iAm = (eID('txAmount').value).toString();
   console.log(iAm)
