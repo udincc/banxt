@@ -160,7 +160,7 @@ async function getWalletInfo(walAcc, incAcc, expAcc){
             }
           };
           for (let i = 0; i < wAcc.length; i++) {
-            if(cAc === eAcc[i][2]){
+            if(cAc === wAcc[i][2]){
               tHst.push(
                 {
                   "tm" : +tTm,
