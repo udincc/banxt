@@ -97,7 +97,10 @@ async function getWalletInfo(walAcc, incAcc, expAcc){
     console.log(wAcc[bw][0])
     let wBl = await getBal(wAcc[bw][2]);
     let wBs = await wBl.balance;
-    tBal+=(+wBs);
+    if(wBs !== undefined){
+      console.log(wBs)
+      tBal+=(+wBs);
+    }
   };
 
   for (let hw = 0; hw < wAcc.length; hw++) {
